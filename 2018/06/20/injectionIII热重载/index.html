@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="在介绍这款工具之前首先得感谢John Holdsworth开发者给我们iOS开发提供了帮助自从Xcode把外来插件屏蔽以后，开发者们已经很久没用到得心应手的工具了！假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章!先来看一个动态图 我喜欢叫他所见即所得，让我想起了Xcode的playground，开个玩笑，说正">
+<meta name="description" content="在介绍这款工具之前首先得感谢John Holdsworth开发者给我们iOS开发提供了帮助假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章!先来看一个动态图 我喜欢叫他所见即所得，让我想起了Xcode的playground，开个玩笑，说正题。先说理由，再说安装及使用方法 1. 第一个使用他的原因：可以加快我的开">
 <meta name="keywords" content="iOS， Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Injection：iOS热重载-所见即所得">
 <meta property="og:url" content="http://yoursite.com/2018/06/20/injectionIII热重载/index.html">
 <meta property="og:site_name" content="TonyZhou 的码屋">
-<meta property="og:description" content="在介绍这款工具之前首先得感谢John Holdsworth开发者给我们iOS开发提供了帮助自从Xcode把外来插件屏蔽以后，开发者们已经很久没用到得心应手的工具了！假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章!先来看一个动态图 我喜欢叫他所见即所得，让我想起了Xcode的playground，开个玩笑，说正">
+<meta property="og:description" content="在介绍这款工具之前首先得感谢John Holdsworth开发者给我们iOS开发提供了帮助假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章!先来看一个动态图 我喜欢叫他所见即所得，让我想起了Xcode的playground，开个玩笑，说正题。先说理由，再说安装及使用方法 1. 第一个使用他的原因：可以加快我的开">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://palpc7ihn.bkt.clouddn.com/640.gif">
 <meta property="og:image" content="http://palpc7ihn.bkt.clouddn.com/WX20180619-195611@2x.png">
@@ -94,10 +94,10 @@
 <meta property="og:image" content="http://palpc7ihn.bkt.clouddn.com/WX20180620-155701@2x.png">
 <meta property="og:image" content="http://palpc7ihn.bkt.clouddn.com/WX20180619-195504@2x.png">
 <meta property="og:image" content="http://palpc7ihn.bkt.clouddn.com/WX20180620-160222@2x.png">
-<meta property="og:updated_time" content="2018-06-20T08:44:38.281Z">
+<meta property="og:updated_time" content="2018-06-20T09:44:10.507Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Injection：iOS热重载-所见即所得">
-<meta name="twitter:description" content="在介绍这款工具之前首先得感谢John Holdsworth开发者给我们iOS开发提供了帮助自从Xcode把外来插件屏蔽以后，开发者们已经很久没用到得心应手的工具了！假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章!先来看一个动态图 我喜欢叫他所见即所得，让我想起了Xcode的playground，开个玩笑，说正">
+<meta name="twitter:description" content="在介绍这款工具之前首先得感谢John Holdsworth开发者给我们iOS开发提供了帮助假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章!先来看一个动态图 我喜欢叫他所见即所得，让我想起了Xcode的playground，开个玩笑，说正题。先说理由，再说安装及使用方法 1. 第一个使用他的原因：可以加快我的开">
 <meta name="twitter:image" content="http://palpc7ihn.bkt.clouddn.com/640.gif">
 
 
@@ -308,7 +308,7 @@
       
 
       
-        <h3 id="在介绍这款工具之前首先得感谢John-Holdsworth开发者给我们iOS开发提供了帮助"><a href="#在介绍这款工具之前首先得感谢John-Holdsworth开发者给我们iOS开发提供了帮助" class="headerlink" title="在介绍这款工具之前首先得感谢John Holdsworth开发者给我们iOS开发提供了帮助"></a>在介绍这款工具之前首先得感谢John Holdsworth开发者给我们iOS开发提供了帮助</h3><h4 id="自从Xcode把外来插件屏蔽以后，开发者们已经很久没用到得心应手的工具了！假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章"><a href="#自从Xcode把外来插件屏蔽以后，开发者们已经很久没用到得心应手的工具了！假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章" class="headerlink" title="自从Xcode把外来插件屏蔽以后，开发者们已经很久没用到得心应手的工具了！假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章!"></a>自从Xcode把外来插件屏蔽以后，开发者们已经很久没用到得心应手的工具了！假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章!</h4><h4 id="先来看一个动态图"><a href="#先来看一个动态图" class="headerlink" title="先来看一个动态图"></a>先来看一个动态图</h4><p><img src="http://palpc7ihn.bkt.clouddn.com/640.gif" alt="Resize icon"></p>
+        <h3 id="在介绍这款工具之前首先得感谢John-Holdsworth开发者给我们iOS开发提供了帮助"><a href="#在介绍这款工具之前首先得感谢John-Holdsworth开发者给我们iOS开发提供了帮助" class="headerlink" title="在介绍这款工具之前首先得感谢John Holdsworth开发者给我们iOS开发提供了帮助"></a>在介绍这款工具之前首先得感谢John Holdsworth开发者给我们iOS开发提供了帮助</h3><h4 id="假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章"><a href="#假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章" class="headerlink" title="假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章!"></a>假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章!</h4><h4 id="先来看一个动态图"><a href="#先来看一个动态图" class="headerlink" title="先来看一个动态图"></a>先来看一个动态图</h4><p><img src="http://palpc7ihn.bkt.clouddn.com/640.gif" alt="Resize icon"></p>
 <p>我喜欢叫他所见即所得，让我想起了Xcode的playground，开个玩笑，说正题。先说理由，再说安装及使用方法</p>
 <h4 id="1-第一个使用他的原因：可以加快我的开发速度"><a href="#1-第一个使用他的原因：可以加快我的开发速度" class="headerlink" title="1. 第一个使用他的原因：可以加快我的开发速度"></a>1. 第一个使用他的原因：可以加快我的开发速度</h4><p>每当我写页面或者改bug的时候难免需要时刻运行查看效果，有时候改了一个label的字体，或者背景颜色，或者frame，都需要重新运行，但是现在不需要了，只要一步CMD+S，保存当前文件</p>
 <p><img src="http://palpc7ihn.bkt.clouddn.com/WX20180619-195611@2x.png" alt="Resize icon"></p>
@@ -482,7 +482,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#在介绍这款工具之前首先得感谢John-Holdsworth开发者给我们iOS开发提供了帮助"><span class="nav-number">1.</span> <span class="nav-text">在介绍这款工具之前首先得感谢John Holdsworth开发者给我们iOS开发提供了帮助</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自从Xcode把外来插件屏蔽以后，开发者们已经很久没用到得心应手的工具了！假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章"><span class="nav-number">1.1.</span> <span class="nav-text">自从Xcode把外来插件屏蔽以后，开发者们已经很久没用到得心应手的工具了！假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章!</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#先来看一个动态图"><span class="nav-number">1.2.</span> <span class="nav-text">先来看一个动态图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-第一个使用他的原因：可以加快我的开发速度"><span class="nav-number">1.3.</span> <span class="nav-text">1. 第一个使用他的原因：可以加快我的开发速度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-第二个使用他的原因：使用起来方便"><span class="nav-number">1.4.</span> <span class="nav-text">2. 第二个使用他的原因：使用起来方便</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意这里路径不要写错，建议粘贴赋值"><span class="nav-number">2.</span> <span class="nav-text">注意这里路径不要写错，建议粘贴赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-没有看到效果的问题的总结"><span class="nav-number">2.1.</span> <span class="nav-text">3. 没有看到效果的问题的总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后感谢所有能够看到末尾的人，欢迎加群QQ交流：578068845"><span class="nav-number">3.</span> <span class="nav-text">最后感谢所有能够看到末尾的人，欢迎加群QQ交流：578068845</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#在介绍这款工具之前首先得感谢John-Holdsworth开发者给我们iOS开发提供了帮助"><span class="nav-number">1.</span> <span class="nav-text">在介绍这款工具之前首先得感谢John Holdsworth开发者给我们iOS开发提供了帮助</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章"><span class="nav-number">1.1.</span> <span class="nav-text">假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章!</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#先来看一个动态图"><span class="nav-number">1.2.</span> <span class="nav-text">先来看一个动态图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-第一个使用他的原因：可以加快我的开发速度"><span class="nav-number">1.3.</span> <span class="nav-text">1. 第一个使用他的原因：可以加快我的开发速度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-第二个使用他的原因：使用起来方便"><span class="nav-number">1.4.</span> <span class="nav-text">2. 第二个使用他的原因：使用起来方便</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意这里路径不要写错，建议粘贴赋值"><span class="nav-number">2.</span> <span class="nav-text">注意这里路径不要写错，建议粘贴赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-没有看到效果的问题的总结"><span class="nav-number">2.1.</span> <span class="nav-text">3. 没有看到效果的问题的总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后感谢所有能够看到末尾的人，欢迎加群QQ交流：578068845"><span class="nav-number">3.</span> <span class="nav-text">最后感谢所有能够看到末尾的人，欢迎加群QQ交流：578068845</span></a></li></ol></div>
             
 
           </div>
