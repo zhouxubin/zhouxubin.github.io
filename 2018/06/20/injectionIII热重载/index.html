@@ -446,21 +446,18 @@
 
 
           
-<div class="comments" id="comments"></div>
 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/valine@1.1.6/dist/Valine.min.js"></script>
-<script>
-new Valine({
-av: AV,
-el: '.comments',
-notify: false, // 邮件提醒 v1.1.4新增，下一步中有具体的邮箱设置
-verify: true,
-app_id: '',
-app_key: '',
-placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
-});
-</script>
+
+<div class="comments" id="comments">
+<div id="disqus_thread">
+<noscript>
+Please enable JavaScript to view the
+<a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+</div>
+</div>
+
+
 
 
 
@@ -647,9 +644,6 @@ placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
 
 
 
-  
-  
-
 
 
   
@@ -702,11 +696,6 @@ placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
   
   
     <script type="text/javascript" src="/lib/three/three.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
   
 
   
@@ -792,27 +781,26 @@ placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
 
 
 
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item=>{
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: false,
-        appId: '470zoaUNI4PIyVsADnRPc5A6-gzGzoHsz',
-        appKey: 'P2jsssRx8hCurzHkers0oqlm',
-        placeholder: '有本事来打我啊~^_^',
-        avatar:'http://palpc7ihn.bkt.clouddn.com/601529574373_.pic.jpg',
-        guest_info:guest,
-        pageSize:'10' || 10,
-    });
-  </script>
+
+
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/js/src/Valine.min.js"></script>
+
+<script type="text/javascript">
+var GUEST = ['nick','mail','link'];
+var guest = 'nick,mail,link';
+guest = guest.split(',').filter(item=>{
+return GUEST.indexOf(item)>-1;
+});
+new Valine({
+av: AV,
+el: '#comments' ,
+appId: '470zoaUNI4PIyVsADnRPc5A6-gzGzoHsz',
+appKey: 'P2jsssRx8hCurzHkers0oqlm',
+placeholder: '有本事来打我啊~^_^',
+});
+</script>
 
 
 
