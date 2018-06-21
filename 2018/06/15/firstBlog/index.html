@@ -240,7 +240,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CoderZhou">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="http://palpc7ihn.bkt.clouddn.com/591529564935_.pic.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -277,6 +277,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/15/firstBlog/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/15/firstBlog/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -363,8 +374,21 @@
 
 
           
+<div class="comments" id="comments"></div>
 
-  
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/valine@1.1.6/dist/Valine.min.js"></script>
+<script>
+new Valine({
+av: AV,
+el: '.comments',
+notify: false, // 邮件提醒 v1.1.4新增，下一步中有具体的邮箱设置
+verify: true,
+app_id: '',
+app_key: '',
+placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
+});
+</script>
 
 
 
@@ -401,6 +425,10 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="http://palpc7ihn.bkt.clouddn.com/591529564935_.pic.jpg"
+                alt="CoderZhou" />
+            
               <p class="site-author-name" itemprop="name">CoderZhou</p>
               <p class="site-description motion-element" itemprop="description">划船从来不靠浆，只靠浪！</p>
           </div>
@@ -420,6 +448,15 @@
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
             
 
           </nav>
@@ -534,11 +571,22 @@
   
 
 
+  
 
 
 
+  
+  
 
 
+
+  
+  
+
+
+
+  
+  
 
 
 
@@ -574,6 +622,31 @@
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
 
   
 
@@ -605,6 +678,26 @@
 
   
 
+    
+      <script id="dsq-count-scr" src="https://CoderZhou.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/06/15/firstBlog/';
+          this.page.identifier = '2018/06/15/firstBlog/';
+          this.page.title = '使用github的第一篇博客';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://CoderZhou.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
 
 
 
@@ -620,16 +713,34 @@
 
 
 
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
   
-
-
-
-
-
-
-
-
-
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '470zoaUNI4PIyVsADnRPc5A6-gzGzoHsz',
+        appKey: 'P2jsssRx8hCurzHkers0oqlm',
+        placeholder: '有本事来打我啊~^_^',
+        avatar:'http://palpc7ihn.bkt.clouddn.com/601529574373_.pic.jpg',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
