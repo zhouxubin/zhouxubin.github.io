@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS,Xcode,RAC,Reactivecocoa,MVVM," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="划船从来不靠浆，只靠浪！">
-<meta name="keywords" content="iOS， Python">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TonyZhou 的码屋">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="RAC+MVVM在实际开发中的常用用法RACSignal12345678910111213141516171819202122// 1.创建信号RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id&amp;lt;RACSubscriber&amp;gt; subscriber) &amp;#123;// 3.发送信号[subscriber send">
+<meta name="keywords" content="iOS,Xcode,RAC,Reactivecocoa,MVVM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RAC+MVVM在实际开发中的常用用法">
+<meta property="og:url" content="http://yoursite.com/2018/12/05/RAC+MVVM用法大全/index.html">
 <meta property="og:site_name" content="TonyZhou 的码屋">
-<meta property="og:description" content="划船从来不靠浆，只靠浪！">
+<meta property="og:description" content="RAC+MVVM在实际开发中的常用用法RACSignal12345678910111213141516171819202122// 1.创建信号RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id&amp;lt;RACSubscriber&amp;gt; subscriber) &amp;#123;// 3.发送信号[subscriber send">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-05T05:54:22.589Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TonyZhou 的码屋">
-<meta name="twitter:description" content="划船从来不靠浆，只靠浪！">
+<meta name="twitter:title" content="RAC+MVVM在实际开发中的常用用法">
+<meta name="twitter:description" content="RAC+MVVM在实际开发中的常用用法RACSignal12345678910111213141516171819202122// 1.创建信号RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id&amp;lt;RACSubscriber&amp;gt; subscriber) &amp;#123;// 3.发送信号[subscriber send">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/05/RAC+MVVM用法大全/"/>
 
 
 
 
 
-  <title>TonyZhou 的码屋</title>
+  <title>RAC+MVVM在实际开发中的常用用法 | TonyZhou 的码屋</title>
   
 
 
@@ -144,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -218,9 +218,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -250,9 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/05/RAC+MVVM用法大全/" itemprop="url">RAC+MVVM在实际开发中的常用用法</a></h1>
+          <h1 class="post-title" itemprop="name headline">RAC+MVVM在实际开发中的常用用法</h1>
         
 
         <div class="post-meta">
@@ -313,9 +311,7 @@
       
 
       
-        
-          
-            <h1 id="RAC-MVVM在实际开发中的常用用法"><a href="#RAC-MVVM在实际开发中的常用用法" class="headerlink" title="RAC+MVVM在实际开发中的常用用法"></a>RAC+MVVM在实际开发中的常用用法</h1><h2 id="RACSignal"><a href="#RACSignal" class="headerlink" title="RACSignal"></a>RACSignal</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 1.创建信号</span><br><span class="line">RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) &#123;</span><br><span class="line">// 3.发送信号</span><br><span class="line">[subscriber sendNext:@&quot;ws&quot;];</span><br><span class="line">// 4.取消信号，如果信号想要被取消，就必须返回一个RACDisposable</span><br><span class="line">// 信号什么时候被取消：1.自动取消，当一个信号的订阅者被销毁的时候机会自动取消订阅，2.手动取消，</span><br><span class="line">//block什么时候调用：一旦一个信号被取消订阅就会调用</span><br><span class="line">//block作用：当信号被取消时用于清空一些资源</span><br><span class="line">return [RACDisposable disposableWithBlock:^&#123;</span><br><span class="line">NSLog(@&quot;取消订阅&quot;);</span><br><span class="line">&#125;];</span><br><span class="line">&#125;];</span><br><span class="line">// 2. 订阅信号</span><br><span class="line">//subscribeNext</span><br><span class="line">// 把nextBlock保存到订阅者里面</span><br><span class="line">// 只要订阅信号就会返回一个取消订阅信号的类</span><br><span class="line">RACDisposable *disposable = [signal subscribeNext:^(id x) &#123;</span><br><span class="line">// block的调用时刻：只要信号内部发出数据就会调用这个block</span><br><span class="line">NSLog(@&quot;======%@&quot;, x);</span><br><span class="line">&#125;];</span><br><span class="line">// 取消订阅</span><br><span class="line">[disposable dispose];</span><br></pre></td></tr></table></figure>
+        <h1 id="RAC-MVVM在实际开发中的常用用法"><a href="#RAC-MVVM在实际开发中的常用用法" class="headerlink" title="RAC+MVVM在实际开发中的常用用法"></a>RAC+MVVM在实际开发中的常用用法</h1><h2 id="RACSignal"><a href="#RACSignal" class="headerlink" title="RACSignal"></a>RACSignal</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 1.创建信号</span><br><span class="line">RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) &#123;</span><br><span class="line">// 3.发送信号</span><br><span class="line">[subscriber sendNext:@&quot;ws&quot;];</span><br><span class="line">// 4.取消信号，如果信号想要被取消，就必须返回一个RACDisposable</span><br><span class="line">// 信号什么时候被取消：1.自动取消，当一个信号的订阅者被销毁的时候机会自动取消订阅，2.手动取消，</span><br><span class="line">//block什么时候调用：一旦一个信号被取消订阅就会调用</span><br><span class="line">//block作用：当信号被取消时用于清空一些资源</span><br><span class="line">return [RACDisposable disposableWithBlock:^&#123;</span><br><span class="line">NSLog(@&quot;取消订阅&quot;);</span><br><span class="line">&#125;];</span><br><span class="line">&#125;];</span><br><span class="line">// 2. 订阅信号</span><br><span class="line">//subscribeNext</span><br><span class="line">// 把nextBlock保存到订阅者里面</span><br><span class="line">// 只要订阅信号就会返回一个取消订阅信号的类</span><br><span class="line">RACDisposable *disposable = [signal subscribeNext:^(id x) &#123;</span><br><span class="line">// block的调用时刻：只要信号内部发出数据就会调用这个block</span><br><span class="line">NSLog(@&quot;======%@&quot;, x);</span><br><span class="line">&#125;];</span><br><span class="line">// 取消订阅</span><br><span class="line">[disposable dispose];</span><br></pre></td></tr></table></figure>
 <h2 id="RACSubject"><a href="#RACSubject" class="headerlink" title="RACSubject"></a>RACSubject</h2><blockquote>
 <p>RACSubject 在使用中我们可以完全代替代理，代码简介方法。具体代码请看demo中的RACSubject。</p>
 </blockquote>
@@ -413,8 +409,6 @@
 </li>
 </ul>
 
-          
-        
       
     </div>
     
@@ -424,379 +418,78 @@
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://palpc7ihn.bkt.clouddn.com/631529575288_.pic.jpg" alt="CoderZhou 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://palpc7ihn.bkt.clouddn.com/611529575279_.pic.jpg" alt="CoderZhou 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
 
     
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/25/Reactivecocoa基本用法（适合初学者）持续更新.../">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="CoderZhou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://palpc7ihn.bkt.clouddn.com/591529564935_.pic.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TonyZhou 的码屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/25/Reactivecocoa基本用法（适合初学者）持续更新.../" itemprop="url">Reactivecocoa基本用法（适合初学者）持续更新...</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-25T14:59:22+08:00">
-                2018-08-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/08/25/Reactivecocoa基本用法（适合初学者）持续更新.../#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/08/25/Reactivecocoa基本用法（适合初学者）持续更新.../" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
+            <a href="/tags/Xcode/" rel="tag"># Xcode</a>
           
-
+            <a href="/tags/RAC/" rel="tag"># RAC</a>
           
+            <a href="/tags/Reactivecocoa/" rel="tag"># Reactivecocoa</a>
           
-
+            <a href="/tags/MVVM/" rel="tag"># MVVM</a>
           
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="文章前言"><a href="#文章前言" class="headerlink" title="文章前言"></a>文章前言</h1><h4 id="一般在使用一个框架之前需要了解的事情，也就是需要了解的东西，本人总结了一下有下面几点（比较浅显，欢迎喷口水）："><a href="#一般在使用一个框架之前需要了解的事情，也就是需要了解的东西，本人总结了一下有下面几点（比较浅显，欢迎喷口水）：" class="headerlink" title="一般在使用一个框架之前需要了解的事情，也就是需要了解的东西，本人总结了一下有下面几点（比较浅显，欢迎喷口水）："></a>一般在使用一个框架之前需要了解的事情，也就是需要了解的东西，本人总结了一下有下面几点（比较浅显，欢迎喷口水）：</h4><h5 id="1-这个框架有什么用，即这个框架能够给我带来什么作用"><a href="#1-这个框架有什么用，即这个框架能够给我带来什么作用" class="headerlink" title="1. 这个框架有什么用，即这个框架能够给我带来什么作用"></a>1. 这个框架有什么用，即这个框架能够给我带来什么作用</h5><h5 id="2-怎么集成这个框架"><a href="#2-怎么集成这个框架" class="headerlink" title="2. 怎么集成这个框架"></a>2. 怎么集成这个框架</h5><h5 id="3-框架的使用方法"><a href="#3-框架的使用方法" class="headerlink" title="3. 框架的使用方法"></a>3. 框架的使用方法</h5><h4 id="下面就从这几个点展开"><a href="#下面就从这几个点展开" class="headerlink" title="下面就从这几个点展开"></a>下面就从这几个点展开</h4><hr>
-<h3 id="一、这个框架有什么用，即这个框架能够给我带来什么作用"><a href="#一、这个框架有什么用，即这个框架能够给我带来什么作用" class="headerlink" title="一、这个框架有什么用，即这个框架能够给我带来什么作用"></a>一、这个框架有什么用，即这个框架能够给我带来什么作用</h3><ul>
-<li>在我们iOS开发过程中，当某些事件响应的时候，需要处理某些业务逻辑,这些事件都用不同的方式来处理。</li>
-<li>比如按钮的点击使用action，使用delegate，属性值改变使用KVO,通知等系统提供的方式。都可以通过RAC处理</li>
-<li>ReactiveCocoa为事件提供了很多处理方法，而且利用RAC处理事件很方便，可以把要处理的事情，和监听的事情的代码放在一起，这样非常方便我们管理，就不需要跳到对应的方法里。非常符合我们开发中高内聚，低耦合的思想。</li>
-<li></li>
-</ul>
-<h3 id="二、-怎么集成这个框架（这里只介绍cocoaPods的集成方法）"><a href="#二、-怎么集成这个框架（这里只介绍cocoaPods的集成方法）" class="headerlink" title="二、 怎么集成这个框架（这里只介绍cocoaPods的集成方法）"></a>二、 怎么集成这个框架（这里只介绍cocoaPods的集成方法）</h3><ul>
-<li><p>OC版的ReactiveCocoa(下面简称RAC)集成方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod &apos;ReactiveObjC&apos;或者pod &apos;ReactiveObjC&apos;, &apos;~&gt; 指定版本&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>swift版的ReactiveCocoa集成方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod &apos;ReactiveCocoa&apos;或者pod &apos;ReactiveCocoa&apos;, &apos;~&gt; 指定版本&apos;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>相信集成这个框架对于一个iOS开发者来说并不是什么难事，下面就介绍框架的几种常用方法废话不多说直接上代码</p>
-<h3 id="三、框架的使用方法"><a href="#三、框架的使用方法" class="headerlink" title="三、框架的使用方法"></a>三、框架的使用方法</h3><h5 id="1-RACSignal框架中最常用的一个类"><a href="#1-RACSignal框架中最常用的一个类" class="headerlink" title="1. RACSignal框架中最常用的一个类"></a>1. RACSignal框架中最常用的一个类</h5><ul>
-<li>RACSiganl:信号类,表示将来有数据传递，只要有数据改变，信号内部接收到数据，就会马上发出数据</li>
-<li>默认一个信号都是冷信号，也就是值改变了，也不会触发，只有订阅了这个信号，这个信号才会变为热信号，值改变了才会触发。</li>
-<li>如何订阅信号：调用信号RACSignal的subscribeNext就能订阅。</li>
-</ul>
-<h5 id="2-RACSignal使用步骤"><a href="#2-RACSignal使用步骤" class="headerlink" title="2. RACSignal使用步骤"></a>2. RACSignal使用步骤</h5><ul>
-<li>创建信号<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ (RACSignal *)createSignal:(RACDisposable * (^)(id subscriber))didSubscribe</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>当然还有其他的创建方法，可以自行尝试</p>
-<ul>
-<li><p>订阅信号,才会激活信号</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (RACDisposable *)subscribeNext:(void (^)(id x))nextBlock</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>发送信号</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)sendNext:(id)value</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><em><strong>这里发送信号的入参value，可以是网络请求的返回值，以及各种你想要传递出去的东西</strong></em></p>
-<p>上代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">//1.创建信号</span><br><span class="line">RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id subscriber) &#123;</span><br><span class="line"></span><br><span class="line">//保存起来 就不会被取消订阅</span><br><span class="line">_subscriber = subscriber;</span><br><span class="line">//3.发送信号</span><br><span class="line">[subscriber sendNext:@1];</span><br><span class="line"></span><br><span class="line">return [RACDisposable disposableWithBlock:^&#123;</span><br><span class="line">NSLog(@&quot;默认信号发送完毕被取消&quot;);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line">//如果要取消就拿到 RACDisposable</span><br><span class="line">//2.订阅信号</span><br><span class="line">RACDisposable *disposable = [signal subscribeNext:^(id x) &#123;</span><br><span class="line"></span><br><span class="line">NSLog(@&quot;%@&quot;,x);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line">//取消订阅</span><br><span class="line">[disposable dispose];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>看过上面的方法，再来看一波网络请求的使用方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[RACSignal createSignal:^RACDisposable * _Nullable(id&lt;RACSubscriber&gt;  _Nonnull subscriber) &#123;</span><br><span class="line">// 这里进行一个网络请求</span><br><span class="line">DELAY(1000000000000);</span><br><span class="line">// 如果请求成功就发送next和complete事件,如果失败就发送error事件</span><br><span class="line">[subscriber sendNext:@&quot;第一个任务&quot;];</span><br><span class="line">// 这里记住一定要调用sendCompleted方法，因为不调用完成这个方法，信号就不会销毁，一直占用着内存，这个是开发者们最不希望看到的</span><br><span class="line">[subscriber sendCompleted];</span><br><span class="line">//        [subscriber sendError:nil];</span><br><span class="line">return [RACDisposable disposableWithBlock:^&#123;</span><br><span class="line">NSLog(@&quot;默认信号发送完毕后就会被销毁，没有订阅者的时候就会被销毁&quot;);</span><br><span class="line">&#125;];</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
-<p>到这里，我觉得RACSignal信号类的使用方法应该能够掌握了，这里讲解一下代码里用到的一些类和协议</p>
-<ul>
-<li>RACSubscriber:表示订阅者的意思，用于发送信号，这是一个协议，不是一个类，只要遵守这个协议，并且实现方法才能成为订阅者。通过create创建的信号，都有一个订阅者，帮助他发送数据。</li>
-<li>RACDisposable:用于取消订阅或者清理资源，当信号发送完成或者发送错误的时候，就会自动触发它。<blockquote>
-<p>使用场景:不想监听某个信号时，可以通过它主动取消订阅信号。</p>
-</blockquote>
-</li>
-</ul>
-<h5 id="3-回看到文章的开头，RAC的作用第二点"><a href="#3-回看到文章的开头，RAC的作用第二点" class="headerlink" title="3. 回看到文章的开头，RAC的作用第二点"></a>3. 回看到文章的开头，RAC的作用第二点</h5><blockquote>
-<p>比如按钮的点击使用action，使用delegate，属性值改变使用KVO,通知等系统提供的方式。都可以通过RAC处理</p>
-</blockquote>
-<p>下面就介绍一些常用的用法不仅可以节约开发时间，而且可以使逻辑代码更加的集中，举个例子：给按钮添加一个target，首先需要addtarget，然后需要写一个方法实现，其实系统的也不麻烦，但是RAC给我们提供了更加快捷的方案，请看表演：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">按钮的点击事件</span><br><span class="line">*/</span><br><span class="line">- (void)addButtonTarget &#123;</span><br><span class="line">UIButton *loginButton = [[UIButton alloc] init];</span><br><span class="line">loginButton.backgroundColor = [UIColor grayColor];</span><br><span class="line">loginButton.frame = CGRectMake(150, 220, 100, 100);</span><br><span class="line">[self.view addSubview:loginButton];</span><br><span class="line"></span><br><span class="line">[[loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) &#123;</span><br><span class="line">NSLog(@&quot;%@&quot;, x);</span><br><span class="line">&#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>想必看到这里大家应该能够看到快捷的地方了，不用添加target，不用再定义一个方法！这个解释一下代码</p>
-<ul>
-<li>rac_signalForControlEvents这个方法的返回值其实是一个信号类，即RACSignal类，再会看到上面提到的RACSignal的使用方法，先创建信号，其实这里内部就会创建一个信号并且返回</li>
-<li>subscribeNext这里就是订阅信号了</li>
-<li>最后发送信号，你可以在subscribeNext的block里面看到，里面的参数，其实就是点击按钮传递出来的值，可以理解为信号携带的值</li>
-</ul>
-<p>这里再举一个例子：监听文本输入框事件。相信大家在开发中经常会遇到需要监听文本框，以此来对付产品提出的各种逆天并且领先科技N年的想法，通常做法都是addtarget，或者delegate，实现各种代理方法，这里使用RAC可以达到异曲同工的效果，上代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">监听文本框的输入</span><br><span class="line">*/</span><br><span class="line">- (void)textFieldChange &#123;</span><br><span class="line">UITextField *textFidle = [[UITextField alloc] init];</span><br><span class="line">textFidle.frame = CGRectMake(100, 100, 200, 40);</span><br><span class="line">textFidle.backgroundColor = [UIColor grayColor];</span><br><span class="line">[self.view addSubview:textFidle];</span><br><span class="line"></span><br><span class="line">// 监听文本框的输入,而且只有大于3个长度的时候才会打印</span><br><span class="line">[[textFidle.rac_textSignal filter:^BOOL(NSString * _Nullable value) &#123;</span><br><span class="line">return value.length &gt; 3;</span><br><span class="line">&#125;]</span><br><span class="line">subscribeNext:^(NSString * _Nullable x) &#123;</span><br><span class="line">NSLog(@&quot;%@&quot;, x);</span><br><span class="line">&#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里讲解一下代码</p>
-<ul>
-<li>textFidle.rac_textSignal这里会返回一个信号，直接订阅该信号就可以拿到输入框里的内容了</li>
-<li>这里可以看到有一个新的东西filter,这个可以理解为筛选过滤的意思，需要返回一个bool值，即只有返回YES的时候subscribeNext，这个block才会调用，可以理解为只有给出通行证，才可以继续往下面执行，filter返回的还是一个RACSignal类</li>
-</ul>
-<h5 id="后续更新内容"><a href="#后续更新内容" class="headerlink" title="后续更新内容"></a>后续更新内容</h5><ol>
-<li>结合实际开发场景，使用RAC解决输入框，按钮点击联动逻辑</li>
-<li>组合信号的使用方法以及使用场景</li>
-<li>快速解决多个任务需要按照顺序执行的需求</li>
-<li>在开发中经常需要执行多个请求，然后再执行后续的任务（让你不再使用GCD中的任务调度组）</li>
-<li>在开发中共需要按照顺序执行多个请求，帮助你更好的解决问题</li>
-<li>网络请求的封装（RACCommand）</li>
-<li>代理的使用方法</li>
-</ol>
-<hr>
-<h2 id="最后感谢所有能够看到末尾的人，如有写的不对的地方可以随时指出，欢迎加群QQ交流：578068845"><a href="#最后感谢所有能够看到末尾的人，如有写的不对的地方可以随时指出，欢迎加群QQ交流：578068845" class="headerlink" title="最后感谢所有能够看到末尾的人，如有写的不对的地方可以随时指出，欢迎加群QQ交流：578068845"></a>最后感谢所有能够看到末尾的人，如有写的不对的地方可以随时指出，欢迎加群QQ交流：578068845</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/20/injectionIII热重载/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="CoderZhou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://palpc7ihn.bkt.clouddn.com/591529564935_.pic.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TonyZhou 的码屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/20/injectionIII热重载/" itemprop="url">Injection：iOS热重载-所见即所得</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-20T16:40:03+08:00">
-                2018-06-20
-              </time>
+              <a href="/2018/08/25/Reactivecocoa基本用法（适合初学者）持续更新.../" rel="next" title="Reactivecocoa基本用法（适合初学者）持续更新...">
+                <i class="fa fa-chevron-left"></i> Reactivecocoa基本用法（适合初学者）持续更新...
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/20/injectionIII热重载/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/20/injectionIII热重载/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h3 id="在介绍这款工具之前首先得感谢John-Holdsworth开发者给我们iOS开发提供了帮助"><a href="#在介绍这款工具之前首先得感谢John-Holdsworth开发者给我们iOS开发提供了帮助" class="headerlink" title="在介绍这款工具之前首先得感谢John Holdsworth开发者给我们iOS开发提供了帮助"></a>在介绍这款工具之前首先得感谢John Holdsworth开发者给我们iOS开发提供了帮助</h3><h4 id="假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章"><a href="#假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章" class="headerlink" title="假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章!"></a>假如你的项目每次build时间在半分钟以上，或者你电脑的配置不高，导致每次运行项目都很慢，那么你可以静下心来，花几分钟时间阅读完这篇文章!</h4><h4 id="先来看一个动态图"><a href="#先来看一个动态图" class="headerlink" title="先来看一个动态图"></a>先来看一个动态图</h4><p><img src="http://palpc7ihn.bkt.clouddn.com/640.gif" alt="Resize icon"></p>
-<p>我喜欢叫他所见即所得，让我想起了Xcode的playground，开个玩笑，说正题。先说理由，再说安装及使用方法</p>
-<h4 id="1-第一个使用他的原因：可以加快我的开发速度"><a href="#1-第一个使用他的原因：可以加快我的开发速度" class="headerlink" title="1. 第一个使用他的原因：可以加快我的开发速度"></a>1. 第一个使用他的原因：可以加快我的开发速度</h4><p>每当我写页面或者改bug的时候难免需要时刻运行查看效果，有时候改了一个label的字体，或者背景颜色，或者frame，都需要重新运行，但是现在不需要了，只要一步CMD+S，保存当前文件</p>
-<p><img src="http://palpc7ihn.bkt.clouddn.com/WX20180619-195611@2x.png" alt="Resize icon"></p>
-<p>可以看到像护士给你打针时候用到的类似针筒的图标会变成绿色，这个时候可以理解为，护士正在给你打针，过一会儿，颜色变成红色</p>
-<p><img src="http://palpc7ihn.bkt.clouddn.com/WX20180619-195626@2x.png" alt="Resize icon"></p>
-<p>变成红色以后表示护士打针打完了，可以看到效果了，官方表示保存以后可以立马看到效果，但是鄙人每次都是退出这个页面，重新进入，如果是列表需要上下滑动才能看到效果</p>
-<h4 id="2-第二个使用他的原因：使用起来方便"><a href="#2-第二个使用他的原因：使用起来方便" class="headerlink" title="2. 第二个使用他的原因：使用起来方便"></a>2. 第二个使用他的原因：使用起来方便</h4><p>这个是mac上的一款app，可以在App Store中搜索Injection,那款不要钱的免费的app就是，上次版本更新是在18年的05.17日，很巧合的日子。点击安装</p>
-<p><img src="http://palpc7ihn.bkt.clouddn.com/WX20180620-155318@2x.png" alt="Resize icon"></p>
-<p>找到你的appdelegate.m文件，上代码：</p>
-<p>OC版</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions &#123;</span><br><span class="line">#if DEBUG</span><br><span class="line">[[NSBundle bundleWithPath:@&quot;/Applications/InjectionIII.app/Contents/Resources/iOSInjection.bundle&quot;] load];</span><br><span class="line">// [[NSBundle bundleWithPath:@&quot;/Applications/InjectionIII.app/Contents/Resources/macOSInjection.bundle&quot;] load];</span><br><span class="line">// [[NSBundle bundleWithPath:@&quot;/Applications/InjectionIII.app/Contents/Resources/tvOSInjection.bundle&quot;] load];</span><br><span class="line">#endif</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>switf版</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool &#123;</span><br><span class="line">#if DEBUG</span><br><span class="line">Bundle(path: &quot;/Applications/InjectionIII.app/Contents/Resources/iOSInjection.bundle&quot;)?.load()</span><br><span class="line">// Bundle(path: &quot;/Applications/InjectionIII.app/Contents/Resources/macOSInjection.bundle&quot;)?.load()</span><br><span class="line">// Bundle(path: &quot;/Applications/InjectionIII.app/Contents/Resources/tvOSInjection.bundle&quot;)?.load()</span><br><span class="line">#endif</span><br><span class="line">return true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="注意这里路径不要写错，建议粘贴赋值"><a href="#注意这里路径不要写错，建议粘贴赋值" class="headerlink" title="注意这里路径不要写错，建议粘贴赋值"></a>注意这里路径不要写错，建议粘贴赋值</h3><p>废话不多说，直接点击，然后打开你的项目，CMD+R，运行项目，这个时候会弹出来一个选择框，让你选择项目的根路径</p>
-<p><img src="http://palpc7ihn.bkt.clouddn.com/WX20180620-155701@2x.png" alt="Resize icon" title="根目录"></p>
-<p>点击你的根目录，然后点击下面的按钮</p>
-<p><img src="http://palpc7ihn.bkt.clouddn.com/WX20180619-195504@2x.png" alt="Resize icon"></p>
-<p>这个时候程序会继续运行，注意看Xcode控制台的log日志</p>
-<p><img src="http://palpc7ihn.bkt.clouddn.com/WX20180620-160222@2x.png" alt="Resize icon"></p>
-<p>看到这句话的时候说明已经OK了，可以开始你的表演了！在每次修改保存文件以后都会看到这句话，到这里其实已经完了。下面说一下有时候没有看到效果的原因</p>
-<h4 id="3-没有看到效果的问题的总结"><a href="#3-没有看到效果的问题的总结" class="headerlink" title="3. 没有看到效果的问题的总结"></a>3. 没有看到效果的问题的总结</h4><ul>
-<li>先看下有没有保存成功，也就是针筒的颜色从绿色变成红色</li>
-<li>确认上面那句话有没有打印，也就是说有没有真的运行这个工具</li>
-<li>如果修改的是cell/item上面的内容，需要上下滚动才能看到效果</li>
-<li>如果修改的是一个普通页面的内容，最好是退出这个页面，再进入这个页面</li>
-<li>确认Xcode的版本9.3及以上</li>
-</ul>
-<h3 id="最后感谢所有能够看到末尾的人，欢迎加群QQ交流：578068845"><a href="#最后感谢所有能够看到末尾的人，欢迎加群QQ交流：578068845" class="headerlink" title="最后感谢所有能够看到末尾的人，欢迎加群QQ交流：578068845"></a>最后感谢所有能够看到末尾的人，欢迎加群QQ交流：578068845</h3>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -806,141 +499,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/15/firstBlog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="CoderZhou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://palpc7ihn.bkt.clouddn.com/591529564935_.pic.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TonyZhou 的码屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/15/firstBlog/" itemprop="url">使用github的第一篇博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-15T16:55:28+08:00">
-                2018-06-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/15/firstBlog/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/15/firstBlog/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="作为一名热衷于iOS开发的开发者，怎能不学习写自己的博客，时刻不忘祖训，分享技术，学习新技术是一生的任务-欢迎交流技术！"><a href="#作为一名热衷于iOS开发的开发者，怎能不学习写自己的博客，时刻不忘祖训，分享技术，学习新技术是一生的任务-欢迎交流技术！" class="headerlink" title="作为一名热衷于iOS开发的开发者，怎能不学习写自己的博客，时刻不忘祖训，分享技术，学习新技术是一生的任务, 欢迎交流技术！"></a>作为一名热衷于iOS开发的开发者，怎能不学习写自己的博客，时刻不忘祖训，分享技术，学习新技术是一生的任务, 欢迎交流技术！</h3><p> <img src="http://palpc7ihn.bkt.clouddn.com/521529332150_2.pic.jpg" alt="Resize icon"></p>
-<h3 id="QQ-447808449"><a href="#QQ-447808449" class="headerlink" title="QQ:447808449"></a>QQ:447808449</h3><h1 id="欢迎交流技术！，坐标上海，同城的可以交朋友噢！"><a href="#欢迎交流技术！，坐标上海，同城的可以交朋友噢！" class="headerlink" title="欢迎交流技术！，坐标上海，同城的可以交朋友噢！"></a>欢迎交流技术！，坐标上海，同城的可以交朋友噢！</h1>
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -948,6 +511,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -968,8 +545,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1034,6 +620,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RAC-MVVM在实际开发中的常用用法"><span class="nav-number">1.</span> <span class="nav-text">RAC+MVVM在实际开发中的常用用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RACSignal"><span class="nav-number">1.1.</span> <span class="nav-text">RACSignal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RACSubject"><span class="nav-number">1.2.</span> <span class="nav-text">RACSubject</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RACSequence"><span class="nav-number">1.3.</span> <span class="nav-text">RACSequence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RACMulticastConnection"><span class="nav-number">1.4.</span> <span class="nav-text">RACMulticastConnection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RACCommand"><span class="nav-number">1.5.</span> <span class="nav-text">RACCommand</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RAC常用宏"><span class="nav-number">1.6.</span> <span class="nav-text">RAC常用宏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RAC-bind"><span class="nav-number">1.7.</span> <span class="nav-text">RAC-bind</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RAC-过滤"><span class="nav-number">1.8.</span> <span class="nav-text">RAC-过滤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RAC-映射"><span class="nav-number">1.9.</span> <span class="nav-text">RAC-映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RAC-组合"><span class="nav-number">1.10.</span> <span class="nav-text">RAC-组合</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1195,6 +797,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1212,6 +818,18 @@
       <script id="dsq-count-scr" src="https://CoderZhou.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/12/05/RAC+MVVM用法大全/';
+          this.page.identifier = '2018/12/05/RAC+MVVM用法大全/';
+          this.page.title = 'RAC+MVVM在实际开发中的常用用法';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://CoderZhou.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
